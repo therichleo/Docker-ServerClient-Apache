@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY cliente.py .
+
+RUN python -m  pip install urllib3
+
+CMD ["python", "cliente.py"]
