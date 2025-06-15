@@ -87,3 +87,42 @@ sudo docker build -t clientehttp .
 sudo docker run -it --name cliente-- clientehttp
 ```
 ## 📡 Conexión entre PC 1 y PC 2
+- Asegurarse que primero el servidor este en correcto funcionamiento, puedes ver desde localhost:8080, si no puedes ver que el contenedor esta corriendo con el comando:
+- Tambien es bueno asegurarse que dentro de la estructura del cliente.py se debe tener la IP del pc el cual sera el servidor, ya que a esa ruta le haremos el get (claramente porque la pagina esta en su ruta)
+```
+sudo docker ps -a
+```
+### ✅ Resultado Esperado:
+- Al correr el contenedor del dockerfile deberia verse esto en tu terminal:
+```
+Status: 200
+Response data: <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo</title>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+</body>
+</html>
+```
+### 📂 Estructura del repositorio:
+```
+.
+├── pc1/
+│   ├── Dockerfile
+│   └── html
+         └── index.html
+└── pc2/
+    ├── Dockerfile
+    └── cliente.py
+```
+
+
+
+
+
+
+
+
