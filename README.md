@@ -40,11 +40,45 @@ EXPOSE 80
 
 CMD ["apachectl", "-D", "FOREGROUND"]
 ```
+#### index.html:
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo</title>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+</body>
+</html>
+```
+### COMANDOS PARA EJECUTAR:
+```
+sudo docker build -t apacheserver .
+sudo docker run -d --name httpserver -p 8080:80 apacheserver
+```
+### PC 2 (Cliente HTTP en Python):
+#### Dockerfile:
+```
+FROM python:3.11-slim
 
+WORKDIR /app
 
+COPY cliente.py .
 
+RUN python -m  pip install urllib3
 
+CMD ["python", "cliente.py"]
+```
+#### cliente.py:
+```
+import urllib3
 
+http = urllib3.PoolManager()
+response = http.request('GET', 'http://192.168.92.129:8080/')
 
-
+print("Status:", response.status)
+print("Response data:", response.data.decode('utf-8'))
+```
 
