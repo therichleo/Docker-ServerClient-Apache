@@ -110,11 +110,11 @@ Response data: <!DOCTYPE html>
 ### 📂 Estructura del repositorio:
 ```
 .
-├── pc1/
+├── servidor/
 │   ├── Dockerfile
 │   └── html
          └── index.html
-└── pc2/
+└── cliente/
     ├── Dockerfile
     └── cliente.py
 ```
