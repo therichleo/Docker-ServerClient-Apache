@@ -20,8 +20,8 @@ Apache HTTP Server es uno de los servidores web más utilizados. Su función es 
 +-------------+      Respuesta       +-----------+
 ```
 ## 🛠️ Configuración
-### PC 1 (Servidor HTTP con Apache):
-#### Dockerfile:
+### 💻 PC 1 (Servidor HTTP con Apache):
+#### 📦 Dockerfile:
 ```
 FROM ubuntu:latest
 
@@ -40,7 +40,7 @@ EXPOSE 80
 
 CMD ["apachectl", "-D", "FOREGROUND"]
 ```
-#### index.html:
+#### 📝 index.html:
 ```
 <!DOCTYPE html>
 <html lang="es">
@@ -53,13 +53,13 @@ CMD ["apachectl", "-D", "FOREGROUND"]
 </body>
 </html>
 ```
-### COMANDOS PARA EJECUTAR:
+### ⚙️ COMANDOS PARA EJECUTAR:
 ```
 sudo docker build -t apacheserver .
 sudo docker run -d --name httpserver -p 8080:80 apacheserver
 ```
-### PC 2 (Cliente HTTP en Python):
-#### Dockerfile:
+### 💻 PC 2 (Cliente HTTP en Python):
+#### 📦 Dockerfile:
 ```
 FROM python:3.11-slim
 
@@ -71,7 +71,7 @@ RUN python -m  pip install urllib3
 
 CMD ["python", "cliente.py"]
 ```
-#### cliente.py:
+#### 📝 cliente.py:
 ```
 import urllib3
 
@@ -81,4 +81,9 @@ response = http.request('GET', 'http://192.168.92.129:8080/')
 print("Status:", response.status)
 print("Response data:", response.data.decode('utf-8'))
 ```
-
+### ⚙️ COMANDOS PARA EJECUTAR:
+```
+sudo docker build -t clientehttp .
+sudo docker run -it --name cliente-- clientehttp
+```
+## 📡 Conexión entre PC 1 y PC 2
