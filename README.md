@@ -11,13 +11,13 @@ HTTP (HyperText Transfer Protocol) es un protocolo de red utilizado para transfe
 Apache HTTP Server es uno de los servidores web más utilizados. Su función es recibir solicitudes HTTP y devolver contenido web como HTML, imágenes o datos. En este proyecto, Apache está contenido en un contenedor Docker y sirve el archivo index.html.
 ## 🐳 Arquitectura del Proyecto
 +-------------+       HTTP GET       +-----------+
-|  PC 2       |  ------------------> |  PC 1     |
-| Cliente     |                      | Servidor  |
+|    PC 2     |  ------------------> |   PC 1    |
+|  Cliente    |                      | Servidor  |
 | Dockerfile  |                      | Dockerfile|
-|             |                      |   Apache  |
-|             |                      |  HTML     |
-| cliente.py  |                      |index.html |
-+-------------+       Respuesta      +-----------+
+| cliente.py  |                      |  Apache   |
+|             |                      | index.html|
++-------------+      Respuesta       +-----------+
+
 ## 🛠️ Configuración
 ### PC 1 (Servidor HTTP con Apache):
 #### Dockerfile:
